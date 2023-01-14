@@ -1,9 +1,11 @@
+package Jabberpoint.Style;
+
 import java.awt.Color;
 import java.awt.Font;
 
-/** <p>Style stands for Indent, Color, Font and Leading.</p>
+/** <p>Jabberpoint.Style.Style stands for Indent, Color, Font and Leading.</p>
  * <p>The link between a style number and a item level is hard-linked:
- * in Slide the style is grabbed for an item
+ * in Jabberpoint.Presentation.Jabberpoint.Slide the style is grabbed for an item
  * with a style number the same as the item level.</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
@@ -18,11 +20,11 @@ public class Style {
 	private static Style[] styles; // de styles
 	
 	private static final String FONTNAME = "Helvetica";
-	int indent;
-	Color color;
-	Font font;
-	int fontSize;
-	int leading;
+	private int indent;
+	private Color color;
+	private Font font;
+	private int fontSize;
+	private int leading;
 
 	public static void createStyles() {
 		styles = new Style[5];    
@@ -54,5 +56,45 @@ public class Style {
 
 	public Font getFont(float scale) {
 		return font.deriveFont(fontSize * scale);
+	}
+
+	public int getIndent() {
+		return indent;
+	}
+
+	public void setIndent(int indent) {
+		this.indent = indent;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
+	public Font getFont() {
+		return font;
+	}
+
+	public void setFont(Font font) {
+		this.font = font;
+	}
+
+	public int getFontSize() {
+		return fontSize;
+	}
+
+	public void setFontSize(int fontSize) {
+		this.fontSize = fontSize;
+	}
+
+	public int getLeading() {
+		return leading;
+	}
+
+	public void setLeading(int leading) {
+		this.leading = leading;
 	}
 }

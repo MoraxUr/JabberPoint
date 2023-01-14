@@ -1,3 +1,9 @@
+package Jabberpoint.Viewer;
+
+import Jabberpoint.Presentation;
+import Jabberpoint.Controller.KeyController;
+import Jabberpoint.Controller.MenuController;
+
 import java.awt.Dimension;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;

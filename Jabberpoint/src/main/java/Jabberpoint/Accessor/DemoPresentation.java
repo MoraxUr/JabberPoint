@@ -1,3 +1,9 @@
+package Jabberpoint.Accessor;
+
+import Jabberpoint.Slide.Slide;
+import Jabberpoint.Presentation;
+import Jabberpoint.Slide.BitmapItem;
+
 /** A built-in demo presentation
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
@@ -11,10 +17,10 @@
 class DemoPresentation extends Accessor {
 
 	public void loadFile(Presentation presentation, String unusedFilename) {
-		presentation.setTitle("Demo Presentation");
+		presentation.setTitle("Demo Jabberpoint.Presentation.Jabberpoint.Presentation");
 		Slide slide;
 		slide = new Slide();
-		slide.setTitle("JabberPoint");
+		slide.setTitle("Jabberpoint.JabberPoint");
 		slide.append(1, "The Java prestentation tool");
 		slide.append(2, "Copyright (c) 1996-2000: Ian Darwin");
 		slide.append(2, "Copyright (c) 2000-now:");
@@ -44,7 +50,7 @@ class DemoPresentation extends Accessor {
 		slide.append(2, "use File->Open from the menu.");
 		slide.append(1, " ");
 		slide.append(1, "This is the end of the presentation.");
-		slide.append(new BitmapItem(1, "JabberPoint.jpg"));
+		slide.append(new BitmapItem(1, "Jabberpoint.JabberPoint.jpg"));
 		presentation.append(slide);
 	}
 
