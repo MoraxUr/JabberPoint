@@ -1,5 +1,6 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
+import java.security.Key;
 
 /** <p>This is the KeyController (KeyListener)</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
@@ -19,24 +20,15 @@ public class KeyController extends KeyAdapter {
 	}
 
 	public void keyPressed(KeyEvent keyEvent) {
-		switch(keyEvent.getKeyCode()) {
-			case KeyEvent.VK_PAGE_DOWN:
-			case KeyEvent.VK_DOWN:
-			case KeyEvent.VK_ENTER:
-			case '+':
-				presentation.nextSlide();
-				break;
-			case KeyEvent.VK_PAGE_UP:
-			case KeyEvent.VK_UP:
-			case '-':
-				presentation.prevSlide();
-				break;
-			case 'q':
-			case 'Q':
-				System.exit(0);
-				break; //Should not be reached
-			default:
-				break;
+		int keyCode = keyEvent.getKeyCode();
+		if (keyCode == KeyEvent.VK_PAGE_DOWN || keyCode == KeyEvent.VK_DOWN || keyCode == KeyEvent.VK_ENTER || keyCode == '+') {
+			presentation.nextSlide();
+		}
+		if (keyCode == KeyEvent.VK_PAGE_UP || keyCode == KeyEvent.VK_UP || keyCode == '-') {
+			presentation.prevSlide();
+		}
+		if (keyCode == KeyEvent.VK_Q) {
+			System.exit(0);
 		}
 	}
 }

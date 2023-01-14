@@ -49,7 +49,9 @@ public class MenuController extends MenuBar {
 		parent = frame;
 		presentation = pres;
 		MenuItem menuItem;
+
 		Menu fileMenu = new Menu(FILE);
+
 		fileMenu.add(menuItem = mkMenuItem(OPEN));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
@@ -65,14 +67,18 @@ public class MenuController extends MenuBar {
 				parent.repaint();
 			}
 		} );
+
 		fileMenu.add(menuItem = mkMenuItem(NEW));
+
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.clear();
 				parent.repaint();
 			}
 		});
+
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
+
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Accessor xmlAccessor = new XMLAccessor();
@@ -84,27 +90,34 @@ public class MenuController extends MenuBar {
 				}
 			}
 		});
+
 		fileMenu.addSeparator();
+
 		fileMenu.add(menuItem = mkMenuItem(EXIT));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.exit(0);
 			}
 		});
+
 		add(fileMenu);
+
 		Menu viewMenu = new Menu(VIEW);
+
 		viewMenu.add(menuItem = mkMenuItem(NEXT));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.nextSlide();
 			}
 		});
+
 		viewMenu.add(menuItem = mkMenuItem(PREV));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.prevSlide();
 			}
 		});
+
 		viewMenu.add(menuItem = mkMenuItem(GOTO));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
@@ -113,14 +126,17 @@ public class MenuController extends MenuBar {
 				presentation.setSlideNumber(pageNumber - 1);
 			}
 		});
+
 		add(viewMenu);
 		Menu helpMenu = new Menu(HELP);
+
 		helpMenu.add(menuItem = mkMenuItem(ABOUT));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				AboutBox.show(parent);
 			}
 		});
+
 		setHelpMenu(helpMenu);		//Needed for portability (Motif, etc.).
 	}
 
