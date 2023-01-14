@@ -13,7 +13,6 @@ import java.security.Key;
 */
 
 public class KeyController extends KeyAdapter {
-	public static final char EXIT = 'q';
 	private Presentation presentation; //Commands are given to the presentation
 
 	public KeyController(Presentation p) {
@@ -28,7 +27,7 @@ public class KeyController extends KeyAdapter {
 		if (keyCode == KeyEvent.VK_PAGE_UP || keyCode == KeyEvent.VK_UP || keyCode == '-') {
 			presentation.prevSlide();
 		}
-		if (keyCode == Character.toLowerCase(EXIT) || keyCode == Character.toUpperCase(EXIT)) {
+		if (keyCode == KeyEvent.VK_Q) {
 			System.exit(0);
 		}
 	}
