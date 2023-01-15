@@ -1,6 +1,6 @@
 package Jabberpoint;
 
-import Jabberpoint.Accessor.DemoPresentation;
+import Jabberpoint.DemoPresentation.DemoPresentation;
 import Jabberpoint.Accessor.XMLAccessor;
 import Jabberpoint.Style.Style;
 import Jabberpoint.Viewer.SlideViewerFrame;
@@ -30,8 +30,7 @@ public class JabberPoint {
 
 	/** The main program */
 	public static void main(String[] argv) {
-		
-		Style.createStyles();
+
 		Presentation presentation = new Presentation();
 		new SlideViewerFrame(JABVERSION, presentation);
 		try {

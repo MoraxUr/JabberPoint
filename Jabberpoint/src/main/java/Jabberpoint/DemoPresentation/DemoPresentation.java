@@ -1,4 +1,4 @@
-package Jabberpoint.Accessor;
+package Jabberpoint.DemoPresentation;
 
 import Jabberpoint.Slide.Slide;
 import Jabberpoint.Presentation;

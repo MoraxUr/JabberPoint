@@ -29,46 +29,54 @@ import java.util.ArrayList;
  */
 
 public class TextItem extends SlideItem {
-	private String text;
+	private final String text;
 	
 	private static final String EMPTYTEXT = "No Text Given";
 
-//A textitem of int level with text string
+	//A textitem of int level with text string
 	public TextItem(int level, String string) {
 		super(level);
-		text = string;
+		this.text = string;
 	}
 
-//An empty textitem
+	//An empty textitem
 	public TextItem() {
 		this(0, EMPTYTEXT);
 	}
 
-//Returns the text
+	//Returns the text
 	public String getText() {
 		return text == null ? "" : text;
 	}
 
-//Returns the AttributedString for the Item
+	//Returns the AttributedString for the Item
 	public AttributedString getAttributedString(Style style, float scale) {
 		AttributedString attrStr = new AttributedString(getText());
 		attrStr.addAttribute(TextAttribute.FONT, style.getFont(scale), 0, text.length());
 		return attrStr;
 	}
 
-//Returns the bounding box of an Item
-	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, 
-			float scale, Style myStyle) {
+	//Returns the bounding box of an Item
+	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle)
+	{
 		List<TextLayout> layouts = getLayouts(g, myStyle, scale);
+
 		int xsize = 0, ysize = (int) (myStyle.getLeading() * scale);
+
 		Iterator<TextLayout> iterator = layouts.iterator();
-		while (iterator.hasNext()) {
+
+		while (iterator.hasNext())
+		{
 			TextLayout layout = iterator.next();
+
 			Rectangle2D bounds = layout.getBounds();
-			if (bounds.getWidth() > xsize) {
+
+			if (bounds.getWidth() > xsize)
+			{
 				xsize = (int) bounds.getWidth();
 			}
-			if (bounds.getHeight() > 0) {
+			if (bounds.getHeight() > 0)
+			{
 				ysize += bounds.getHeight();
 			}
 			ysize += layout.getLeading() + layout.getDescent();
@@ -76,7 +84,7 @@ public class TextItem extends SlideItem {
 		return new Rectangle((int) (myStyle.getIndent()*scale), 0, xsize, ysize );
 	}
 
-//Draws the item
+	//Draws the item
 	public void draw(int x, int y, float scale, Graphics g,
 					 Style myStyle, ImageObserver o) {
 		if (text == null || text.length() == 0) {
