@@ -1,6 +1,9 @@
+package Jabberpoint.Controller;
+
+import Jabberpoint.Presentation;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
-import java.security.Key;
 
 /** <p>This is the KeyController (KeyListener)</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
@@ -13,22 +16,18 @@ import java.security.Key;
 */
 
 public class KeyController extends KeyAdapter {
-	private Presentation presentation; //Commands are given to the presentation
+	private final Presentation presentation; //Commands are given to the presentation
 
 	public KeyController(Presentation p) {
-		presentation = p;
+		this.presentation = p;
 	}
 
 	public void keyPressed(KeyEvent keyEvent) {
 		int keyCode = keyEvent.getKeyCode();
-		if (keyCode == KeyEvent.VK_PAGE_DOWN || keyCode == KeyEvent.VK_DOWN || keyCode == KeyEvent.VK_ENTER || keyCode == '+') {
-			presentation.nextSlide();
-		}
-		if (keyCode == KeyEvent.VK_PAGE_UP || keyCode == KeyEvent.VK_UP || keyCode == '-') {
-			presentation.prevSlide();
-		}
-		if (keyCode == KeyEvent.VK_Q) {
-			System.exit(0);
+		switch (keyCode) {
+			case KeyEvent.VK_PAGE_DOWN, KeyEvent.VK_DOWN, KeyEvent.VK_ENTER, '+' -> presentation.nextSlide();
+			case KeyEvent.VK_PAGE_UP, KeyEvent.VK_UP, KeyEvent.VK_BACK_SPACE, '-' -> presentation.prevSlide();
+			case KeyEvent.VK_Q -> presentation.exit(0);
 		}
 	}
 }

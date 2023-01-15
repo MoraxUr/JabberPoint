@@ -1,3 +1,8 @@
+package Jabberpoint.Viewer;
+
+import Jabberpoint.Presentation;
+import Jabberpoint.Slide.Slide;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Dimension;
@@ -7,7 +12,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 
-/** <p>SlideViewerComponent is a graphical component that ca display Slides.</p>
+/** <p>Jabberpoint.Viewer.SlideViewerComponent is a graphical component that ca display Slides.</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
  * @version 1.2 2003/11/19 Sylvia Stuurman
@@ -20,11 +25,9 @@ import javax.swing.JFrame;
 public class SlideViewerComponent extends JComponent {
 		
 	private Slide slide; //The current slide
-	private Font labelFont = null; //The font for labels
-	private Presentation presentation = null; //The presentation
-	private JFrame frame = null;
-	
-	private static final long serialVersionUID = 227L;
+	private final Font labelFont; //The font for labels
+	private Presentation presentation; //The presentation
+	private final JFrame frame;
 	
 	private static final Color BGCOLOR = Color.white;
 	private static final Color COLOR = Color.black;
