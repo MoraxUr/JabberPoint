@@ -5,7 +5,7 @@ import Jabberpoint.Presentation;
 import java.io.IOException;
 
 /**
- * <p>An Jabberpoint.Accessor.Jabberpoint.Accessor makes it possible to read and write data
+ * <p>An Accessor makes it possible to read and write data
  * for a presentation.</p>
  * <p>Non-abstract subclasses should implement the load and save methods.</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman

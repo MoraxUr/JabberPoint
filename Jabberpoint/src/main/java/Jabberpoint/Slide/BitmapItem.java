@@ -71,6 +71,6 @@ public class BitmapItem extends SlideItem {
 	}
 
 	public String toString() {
-		return "Jabberpoint.Presentation.BitmapItem[" + getLevel() + "," + imageName + "]";
+		return "BitmapItem[" + getLevel() + "," + imageName + "]";
 	}
 }

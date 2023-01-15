@@ -17,10 +17,10 @@ import Jabberpoint.Slide.BitmapItem;
 class DemoPresentation extends Accessor {
 
 	public void loadFile(Presentation presentation, String unusedFilename) {
-		presentation.setTitle("Demo Jabberpoint.Presentation.Jabberpoint.Presentation");
+		presentation.setTitle("Demo Presentation");
 		Slide slide;
 		slide = new Slide();
-		slide.setTitle("Jabberpoint.JabberPoint");
+		slide.setTitle("JabberPoint");
 		slide.append(1, "The Java prestentation tool");
 		slide.append(2, "Copyright (c) 1996-2000: Ian Darwin");
 		slide.append(2, "Copyright (c) 2000-now:");
@@ -50,7 +50,7 @@ class DemoPresentation extends Accessor {
 		slide.append(2, "use File->Open from the menu.");
 		slide.append(1, " ");
 		slide.append(1, "This is the end of the presentation.");
-		slide.append(new BitmapItem(1, "Jabberpoint.JabberPoint.jpg"));
+		slide.append(new BitmapItem(1, "JabberPoint.jpg"));
 		presentation.append(slide);
 	}
 

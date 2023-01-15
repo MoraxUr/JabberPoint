@@ -111,6 +111,6 @@ public class TextItem extends SlideItem {
 	}
 
 	public String toString() {
-		return "Jabberpoint.Presentation.TextItem[" + getLevel()+","+getText()+"]";
+		return "TextItem[" + getLevel()+","+getText()+"]";
 	}
 }
