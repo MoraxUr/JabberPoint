@@ -124,11 +124,7 @@ public class MenuController extends MenuBar {
 				menuItem.addActionListener(actionEvent -> presentation.prevSlide());
 			}
 			case GOTO -> {
-				menuItem.addActionListener(actionEvent -> {
-					String pageNumberStr = JOptionPane.showInputDialog(PAGENR);
-					int pageNumber = Integer.parseInt(pageNumberStr);
-					presentation.setSlideNumber(pageNumber - 1);
-				});
+				menuGotoListener(menuItem);
 			}
 			case ABOUT -> menuItem.addActionListener(actionEvent -> AboutBox.show(parent));
 		}
@@ -160,6 +156,15 @@ public class MenuController extends MenuBar {
 				JOptionPane.showMessageDialog(parent, IOEX + exc,
 						SAVEERR, JOptionPane.ERROR_MESSAGE);
 			}
+		});
+	}
+
+	protected void menuGotoListener(MenuItem menuItem)
+	{
+		menuItem.addActionListener(actionEvent -> {
+			String pageNumberStr = JOptionPane.showInputDialog(PAGENR);
+			int pageNumber = Integer.parseInt(pageNumberStr);
+			presentation.setSlideNumber(pageNumber - 1);
 		});
 	}
 }
