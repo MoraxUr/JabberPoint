@@ -18,18 +18,18 @@ import java.util.ArrayList;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class Presentation {
+public class ControlRoom {
 	private String showTitle; //The title of the presentation
 	private ArrayList<Slide> showList = null; //An ArrayList with slides
 	private int currentSlideNumber = 0; //The number of the current slide
-	private SlideViewerComponent slideViewComponent = null; //The view component of the slides
+	private SlideViewerComponent slideViewComponent; //The view component of the slides
 
-	public Presentation() {
+	public ControlRoom() {
 		slideViewComponent = null;
 		clear();
 	}
 
-	public Presentation(SlideViewerComponent slideViewerComponent) {
+	public ControlRoom(SlideViewerComponent slideViewerComponent) {
 		this.slideViewComponent = slideViewerComponent;
 		clear();
 	}
@@ -55,9 +55,11 @@ public class Presentation {
 		return currentSlideNumber;
 	}
 
-	//Change the current slide number and report it the the window
+	//Change the current slide number and report it to the window
 	public void setSlideNumber(int number) {
-		currentSlideNumber = number;
+		if(number >= 0 && number <= showList.size()-1) {
+			currentSlideNumber = number;
+		}
 		if (slideViewComponent != null) {
 			slideViewComponent.update(this, getCurrentSlide());
 		}
@@ -93,7 +95,7 @@ public class Presentation {
 		if (number < 0 || number >= getSize()){
 			return null;
 	    }
-			return (Slide)showList.get(number);
+			return showList.get(number);
 	}
 
 	//Return the current slide

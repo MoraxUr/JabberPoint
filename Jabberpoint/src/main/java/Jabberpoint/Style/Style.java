@@ -22,19 +22,19 @@ public abstract class Style {
 	public static Style getStyle(int level)
 	{
 		switch (level) {
-			case 1 -> {
+			case 0 -> {
 				return new StyleLevelOne();
 			}
-			case 2 -> {
+			case 1 -> {
 				return new StyleLevelTwo();
 			}
-			case 3 -> {
+			case 2 -> {
 				return new StyleLevelThree();
 			}
-			case 4 -> {
+			case 3 -> {
 				return new StyleLevelFour();
 			}
-			case 5 -> {
+			case 4 -> {
 				return new StyleLevelFive();
 			}
 		}
