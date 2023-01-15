@@ -1,6 +1,6 @@
 package Jabberpoint;
 
-import Jabberpoint.Accessor.Accessor;
+import Jabberpoint.Accessor.DemoPresentation;
 import Jabberpoint.Accessor.XMLAccessor;
 import Jabberpoint.Style.Style;
 import Jabberpoint.Viewer.SlideViewerFrame;
@@ -36,7 +36,7 @@ public class JabberPoint {
 		new SlideViewerFrame(JABVERSION, presentation);
 		try {
 			if (argv.length == 0) { //a demo presentation
-				Accessor.getDemoAccessor().loadFile(presentation, "");
+				DemoPresentation.showDemo(presentation, "");
 			} else {
 				new XMLAccessor().loadFile(presentation, argv[0]);
 			}
