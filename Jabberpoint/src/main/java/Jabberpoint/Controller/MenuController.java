@@ -99,6 +99,7 @@ public class MenuController extends MenuBar {
 		return helpMenu;
 	}
 
+	// switches the label for the item and adds the correct event listener
 	protected void giveActionListener(MenuItem menuItem)
 	{
 		switch (menuItem.getLabel()) {
