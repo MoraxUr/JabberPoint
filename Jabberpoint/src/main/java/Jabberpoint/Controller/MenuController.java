@@ -44,7 +44,7 @@ public class MenuController extends MenuBar {
 	protected static final String SAVE = "Save";
 	protected static final String VIEW = "View";
 	
-	protected static final String TESTFILE = "testPresentation.xml";
+	protected static final String TESTFILE = "./assets/testPresentation.xml";
 	protected static final String SAVEFILE = "savedPresentation.xml";
 	
 	protected static final String IOEX = "IO Exception: ";
@@ -52,12 +52,22 @@ public class MenuController extends MenuBar {
 	protected static final String SAVEERR = "Save Error";
 
 	public MenuController(Frame frame, Presentation pres) {
-		parent = frame;
-		presentation = pres;
-		MenuItem menuItem;
+		this.parent = frame;
+		this.presentation = pres;
+		makeMenuBar();
+	}
 
+	protected void makeMenuBar()
+	{
+		MenuItem menuItem = new MenuItem();
+		add(makeFileMenu(menuItem));
+		add(makeViewMenu(menuItem));
+		setHelpMenu(makeHelpMenu(menuItem));
+	}
+
+	protected Menu makeFileMenu(MenuItem menuItem)
+	{
 		Menu fileMenu = new Menu(FILE);
-
 		fileMenu.add(menuItem = mkMenuItem(OPEN));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
@@ -67,8 +77,8 @@ public class MenuController extends MenuBar {
 					xmlAccessor.loadFile(presentation, TESTFILE);
 					presentation.setSlideNumber(0);
 				} catch (IOException exc) {
-					JOptionPane.showMessageDialog(parent, IOEX + exc, 
-         			LOADERR, JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(parent, IOEX + exc,
+							LOADERR, JOptionPane.ERROR_MESSAGE);
 				}
 				parent.repaint();
 			}
@@ -91,7 +101,7 @@ public class MenuController extends MenuBar {
 				try {
 					xmlAccessor.saveFile(presentation, SAVEFILE);
 				} catch (IOException exc) {
-					JOptionPane.showMessageDialog(parent, IOEX + exc, 
+					JOptionPane.showMessageDialog(parent, IOEX + exc,
 							SAVEERR, JOptionPane.ERROR_MESSAGE);
 				}
 			}
@@ -105,12 +115,14 @@ public class MenuController extends MenuBar {
 				presentation.exit(0);
 			}
 		});
+		return fileMenu;
+	}
 
-		add(fileMenu);
-
+	protected Menu makeViewMenu(MenuItem menuItem)
+	{
 		Menu viewMenu = new Menu(VIEW);
-
-		viewMenu.add(menuItem = mkMenuItem(NEXT));
+		MenuItem balls;
+		viewMenu.add(balls = mkMenuItem(NEXT));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.nextSlide();
@@ -133,17 +145,19 @@ public class MenuController extends MenuBar {
 			}
 		});
 
-		add(viewMenu);
-		Menu helpMenu = new Menu(HELP);
+		return(viewMenu);
+	}
 
+	protected Menu makeHelpMenu(MenuItem menuItem)
+	{
+		Menu helpMenu = new Menu(HELP);
 		helpMenu.add(menuItem = mkMenuItem(ABOUT));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				AboutBox.show(parent);
 			}
 		});
-
-		setHelpMenu(helpMenu);		//Needed for portability (Motif, etc.).
+		return helpMenu;
 	}
 
 //Creating a menu-item

@@ -2,10 +2,10 @@
 <!DOCTYPE presentation SYSTEM
         "C:\Users\Nick\Desktop\School\Jaar_2\Periode2\Object Oriented design\Jabberpoint 2\JabberPoint\Jabberpoint\Assets\jabberpoint.dtd">
 <presentation>
-	<showtitle>XML-Based Jabberpoint.Presentation for Jabberpoint</showtitle>
+	<showtitle>XML-Based Presentation for Jabberpoint</showtitle>
 	<slide>
-		<title>Jabberpoint.JabberPoint XML-Demo</title>
-		<item kind="text"  level="1">Welcome to Jabberpoint.JabberPoint</item>
+		<title>JabberPoint XML-Demo</title>
+		<item kind="text"  level="1">Welcome to JabberPoint</item>
 		<item kind="text"  level="2">Copyright (c) 1996-2000 Ian Darwin</item>
 		<item kind="text"  level="2">Rewritten by</item>
 		<item kind="text"  level="2">Gert Florijn, Mark van Elswijk, Marc Evers</item>
@@ -25,16 +25,16 @@
 		<item kind="text"  level="1">course Design patterns of the Open university</item>
 		<item kind="text"  level="1">but is also used for the course OO1 of the NHL-Stenden university of applied sciences</item>
 		<item kind="text"  level="1"> </item>
-		<item kind="image"  level="2">logo-woordmerk_ou.gif</item>
-		<item kind="image"  level="2">logo_nhlstenden.jpg</item>
+		<item kind="image"  level="2">./assets/logo-woordmerk_ou.gif</item>
+		<item kind="image"  level="2">./assets/logo_nhlstenden.jpg</item>
 		<item kind="text"  level="1"> </item>
 		<item kind="text"  level="1">The exercise is developed by the SERC</item>
 		<item kind="text"  level="1">in collaboration with the Open university </item>
 		<item kind="text"  level="1"> </item>
-		<item kind="image"  level="2">serclogo_fc.jpg</item>
+		<item kind="image"  level="2">./assets/serclogo_fc.jpg</item>
 	</slide>
 	<slide>
-		<title>Jabberpoint.JabberPoint: Levels and styles</title>
+		<title>JabberPoint: Levels and styles</title>
 		<item kind="text"  level="1">Level 1</item>
 		<item kind="text"  level="2">Level 2</item>
 		<item kind="text"  level="1">A Jabberful Point</item>
@@ -48,7 +48,7 @@
 		<item kind="text"  level="2">Load a presentation: File->Open</item>
 		<item kind="text"  level="1"> </item>
 		<item kind="text"  level="1">This is the end of the presentation.</item>
-		<item kind="image"  level="1">Jabberpoint.JabberPoint.jpg</item>
+		<item kind="image"  level="1">./assets/JabberPoint.jpg</item>
 		<item kind="text"  level="1">Goodbye.</item>
 	</slide>
 </presentation>
