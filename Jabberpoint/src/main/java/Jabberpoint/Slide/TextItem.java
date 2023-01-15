@@ -63,20 +63,13 @@ public class TextItem extends SlideItem {
 
 		int xsize = 0, ysize = (int) (myStyle.getLeading() * scale);
 
-		Iterator<TextLayout> iterator = layouts.iterator();
-
-		while (iterator.hasNext())
-		{
-			TextLayout layout = iterator.next();
-
+		for (TextLayout layout : layouts) {
 			Rectangle2D bounds = layout.getBounds();
 
-			if (bounds.getWidth() > xsize)
-			{
+			if (bounds.getWidth() > xsize) {
 				xsize = (int) bounds.getWidth();
 			}
-			if (bounds.getHeight() > 0)
-			{
+			if (bounds.getHeight() > 0) {
 				ysize += bounds.getHeight();
 			}
 			ysize += layout.getLeading() + layout.getDescent();
@@ -95,9 +88,7 @@ public class TextItem extends SlideItem {
 				y + (int) (myStyle.getLeading() * scale));
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.setColor(myStyle.getColor());
-		Iterator<TextLayout> it = layouts.iterator();
-		while (it.hasNext()) {
-			TextLayout layout = it.next();
+		for (TextLayout layout : layouts) {
 			pen.y += layout.getAscent();
 			layout.draw(g2d, pen.x, pen.y);
 			pen.y += layout.getDescent();
