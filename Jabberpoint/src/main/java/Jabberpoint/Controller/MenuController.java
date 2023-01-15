@@ -9,8 +9,6 @@ import java.awt.Frame;
 import java.awt.Menu;
 import java.awt.MenuItem;
 import java.awt.MenuShortcut;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
@@ -28,8 +26,6 @@ public class MenuController extends MenuBar {
 	
 	private final Frame parent; //The frame, only used as parent for the Dialogs
 	private final Presentation presentation; //Commands are given to the presentation
-	
-	private static final long serialVersionUID = 227L;
 	
 	protected static final String ABOUT = "About";
 	protected static final String FILE = "File";
@@ -75,27 +71,27 @@ public class MenuController extends MenuBar {
 	protected Menu makeFileMenu()
 	{
 		Menu fileMenu = new Menu(FILE);
-		fileMenu.add(mkMenuItem(OPEN,'o'));
-		fileMenu.add(mkMenuItem(NEW,'n'));
-		fileMenu.add(mkMenuItem(SAVE,'s'));
+		fileMenu.add(mkMenuItem(OPEN,'O'));
+		fileMenu.add(mkMenuItem(NEW,'E'));
+		fileMenu.add(mkMenuItem(SAVE,'S'));
 		fileMenu.addSeparator();
-		fileMenu.add(mkMenuItem(EXIT,'e'));
+		fileMenu.add(mkMenuItem(EXIT,'Q'));
 		return fileMenu;
 	}
 
 	protected Menu makeViewMenu()
 	{
 		Menu viewMenu = new Menu(VIEW);
-		viewMenu.add(mkMenuItem(NEXT,'['));
-		viewMenu.add(mkMenuItem(PREV,'p'));
-		viewMenu.add(mkMenuItem(GOTO,'g'));
+		viewMenu.add(mkMenuItem(NEXT,'N'));
+		viewMenu.add(mkMenuItem(PREV,'P'));
+		viewMenu.add(mkMenuItem(GOTO,'G'));
 		return(viewMenu);
 	}
 
 	protected Menu makeHelpMenu()
 	{
 		Menu helpMenu = new Menu(HELP);
-		helpMenu.add(mkMenuItem(ABOUT,'a'));
+		helpMenu.add(mkMenuItem(ABOUT,'A'));
 		return helpMenu;
 	}
 
