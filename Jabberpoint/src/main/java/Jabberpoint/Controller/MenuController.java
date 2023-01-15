@@ -59,16 +59,29 @@ public class MenuController extends MenuBar {
 
 	protected void makeMenuBar()
 	{
-		MenuItem menuItem = new MenuItem();
-		add(makeFileMenu(menuItem));
-		add(makeViewMenu(menuItem));
-		setHelpMenu(makeHelpMenu(menuItem));
+		add(makeFileMenu());
+		add(makeViewMenu());
+		setHelpMenu(makeHelpMenu());
 	}
 
-	protected Menu makeFileMenu(MenuItem menuItem)
+	protected Menu makeFileMenu()
 	{
 		Menu fileMenu = new Menu(FILE);
-		fileMenu.add(menuItem = mkMenuItem(OPEN));
+		MenuItem menuItem;
+		fileMenu.add(menuItem = mkMenuItem(OPEN,'o'));
+		menuOpenListener(menuItem);
+		fileMenu.add(menuItem = mkMenuItem(NEW,'n'));
+		menuNewListener(menuItem);
+		fileMenu.add(menuItem = mkMenuItem(SAVE,'s'));
+		menuSaveListener(menuItem);
+		fileMenu.addSeparator();
+		fileMenu.add(menuItem = mkMenuItem(EXIT,'e'));
+		menuExitListener(menuItem);
+		return fileMenu;
+	}
+
+	protected void menuOpenListener(MenuItem menuItem)
+	{
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.clear();
@@ -82,19 +95,21 @@ public class MenuController extends MenuBar {
 				}
 				parent.repaint();
 			}
-		} );
+		});
+	}
 
-		fileMenu.add(menuItem = mkMenuItem(NEW));
-
+	protected void menuNewListener(MenuItem menuItem)
+	{
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.clear();
 				parent.repaint();
 			}
 		});
+	}
 
-		fileMenu.add(menuItem = mkMenuItem(SAVE));
-
+	protected void menuSaveListener(MenuItem menuItem)
+	{
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Accessor xmlAccessor = new XMLAccessor();
@@ -106,37 +121,38 @@ public class MenuController extends MenuBar {
 				}
 			}
 		});
+	}
 
-		fileMenu.addSeparator();
-
-		fileMenu.add(menuItem = mkMenuItem(EXIT));
+	protected void menuExitListener(MenuItem menuItem)
+	{
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.exit(0);
 			}
 		});
-		return fileMenu;
 	}
 
-	protected Menu makeViewMenu(MenuItem menuItem)
+
+
+	protected Menu makeViewMenu()
 	{
 		Menu viewMenu = new Menu(VIEW);
-		MenuItem balls;
-		viewMenu.add(balls = mkMenuItem(NEXT));
+		MenuItem menuItem;
+		viewMenu.add(menuItem = mkMenuItem(NEXT,'['));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.nextSlide();
 			}
 		});
 
-		viewMenu.add(menuItem = mkMenuItem(PREV));
+		viewMenu.add(menuItem = mkMenuItem(PREV,'p'));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.prevSlide();
 			}
 		});
 
-		viewMenu.add(menuItem = mkMenuItem(GOTO));
+		viewMenu.add(menuItem = mkMenuItem(GOTO,'g'));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				String pageNumberStr = JOptionPane.showInputDialog((Object)PAGENR);
@@ -148,10 +164,11 @@ public class MenuController extends MenuBar {
 		return(viewMenu);
 	}
 
-	protected Menu makeHelpMenu(MenuItem menuItem)
+	protected Menu makeHelpMenu()
 	{
 		Menu helpMenu = new Menu(HELP);
-		helpMenu.add(menuItem = mkMenuItem(ABOUT));
+		MenuItem menuItem;
+		helpMenu.add(menuItem = mkMenuItem(ABOUT,'a'));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				AboutBox.show(parent);
@@ -161,7 +178,7 @@ public class MenuController extends MenuBar {
 	}
 
 //Creating a menu-item
-	public MenuItem mkMenuItem(String name) {
-		return new MenuItem(name, new MenuShortcut(name.charAt(0)));
+	public MenuItem mkMenuItem(String name, char shortCut) {
+		return new MenuItem(name, new MenuShortcut(shortCut));
 	}
 }
