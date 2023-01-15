@@ -18,18 +18,18 @@ import java.util.ArrayList;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class ControlRoom {
+public class Presentation {
 	private String showTitle; //The title of the presentation
 	private ArrayList<Slide> showList = null; //An ArrayList with slides
 	private int currentSlideNumber = 0; //The number of the current slide
 	private SlideViewerComponent slideViewComponent; //The view component of the slides
 
-	public ControlRoom() {
+	public Presentation() {
 		slideViewComponent = null;
 		clear();
 	}
 
-	public ControlRoom(SlideViewerComponent slideViewerComponent) {
+	public Presentation(SlideViewerComponent slideViewerComponent) {
 		this.slideViewComponent = slideViewerComponent;
 		clear();
 	}

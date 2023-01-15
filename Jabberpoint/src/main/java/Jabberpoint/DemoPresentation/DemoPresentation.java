@@ -1,7 +1,7 @@
 package Jabberpoint.DemoPresentation;
 
-import Jabberpoint.Slide.Slide;
 import Jabberpoint.Presentation;
+import Jabberpoint.Slide.Slide;
 import Jabberpoint.Slide.BitmapItem;
 
 /** A built-in demo presentation

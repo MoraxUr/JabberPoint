@@ -30,18 +30,18 @@ public class Main {
 	/** The main program */
 	public static void main(String[] argv) {
 
-		ControlRoom controlRoom = new ControlRoom();
-		new SlideViewerFrame(JABVERSION, controlRoom);
+		Presentation presentation = new Presentation();
+		new SlideViewerFrame(JABVERSION, presentation);
 		try {
 			if (argv.length == 0)
 			{
-				DemoPresentation.showDemo(controlRoom);
+				DemoPresentation.showDemo(presentation);
 			}
 			else
 			{
-				new XMLAccessor().loadFile(controlRoom, argv[0]);
+				new XMLAccessor().loadFile(presentation, argv[0]);
 			}
-			controlRoom.setSlideNumber(0);
+			presentation.setSlideNumber(0);
 		} catch (IOException ex) {
 			JOptionPane.showMessageDialog(null,
 					IOERR + ex, JABERR,

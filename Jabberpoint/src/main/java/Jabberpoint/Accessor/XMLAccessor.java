@@ -138,7 +138,7 @@ public class XMLAccessor extends Accessor {
 		writer.print("<showtitle>");
 		writer.print(presentation.getTitle());
 		writer.println("</showtitle>");
-		for (int slideNumber=0; slideNumber<presentation.getSize(); slideNumber++) {
+		for (int slideNumber = 0; slideNumber< presentation.getSize(); slideNumber++) {
 			Slide slide = presentation.getSlide(slideNumber);
 			writer.println("<slide>");
 			writer.println("<title>" + slide.getTitle() + "</title>");
