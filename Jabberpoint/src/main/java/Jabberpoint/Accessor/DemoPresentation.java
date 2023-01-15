@@ -16,10 +16,16 @@ import Jabberpoint.Slide.BitmapItem;
 
 public abstract class DemoPresentation {
 
-	public static void showDemo(Presentation presentation, String unusedFilename) {
+	public static void showDemo(Presentation presentation) {
 		presentation.setTitle("Demo Presentation");
-		Slide slide;
-		slide = new Slide();
+		presentation.append(firstSlide());
+		presentation.append(secondSlide());
+		presentation.append(thirdSlide());
+	}
+
+	protected static Slide firstSlide()
+	{
+		Slide slide = new Slide();
 		slide.setTitle("JabberPoint");
 		slide.append(1, "The Java prestentation tool");
 		slide.append(2, "Copyright (c) 1996-2000: Ian Darwin");
@@ -31,9 +37,12 @@ public abstract class DemoPresentation {
 		slide.append(3, "Next slide: PgDn or Enter");
 		slide.append(3, "Previous slide: PgUp or up-arrow");
 		slide.append(3, "Quit: q or Q");
-		presentation.append(slide);
+		return slide;
+	}
 
-		slide = new Slide();
+	protected static Slide secondSlide()
+	{
+		Slide slide = new Slide();
 		slide.setTitle("Demonstration of levels and styles");
 		slide.append(1, "Level 1");
 		slide.append(2, "Level 2");
@@ -42,15 +51,18 @@ public abstract class DemoPresentation {
 		slide.append(2, "Level 2 has style number 2");
 		slide.append(3, "This is how level 3 looks like");
 		slide.append(4, "And this is level 4");
-		presentation.append(slide);
+		return slide;
+	}
 
-		slide = new Slide();
+	protected static Slide thirdSlide()
+	{
+		Slide slide = new Slide();
 		slide.setTitle("The third slide");
 		slide.append(1, "To open a new presentation,");
 		slide.append(2, "use File->Open from the menu.");
 		slide.append(1, " ");
 		slide.append(1, "This is the end of the presentation.");
 		slide.append(new BitmapItem(1, "./assets/JabberPoint.jpg"));
-		presentation.append(slide);
+		return slide;
 	}
 }
