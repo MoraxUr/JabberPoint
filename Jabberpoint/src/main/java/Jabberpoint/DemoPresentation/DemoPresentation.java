@@ -1,3 +1,9 @@
+package Jabberpoint.DemoPresentation;
+
+import Jabberpoint.Presentation;
+import Jabberpoint.Slide.Slide;
+import Jabberpoint.Slide.BitmapItem;
+
 /** A built-in demo presentation
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
@@ -8,12 +14,18 @@
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-class DemoPresentation extends Accessor {
+public abstract class DemoPresentation {
 
-	public void loadFile(Presentation presentation, String unusedFilename) {
+	public static void showDemo(Presentation presentation) {
 		presentation.setTitle("Demo Presentation");
-		Slide slide;
-		slide = new Slide();
+		presentation.append(firstSlide());
+		presentation.append(secondSlide());
+		presentation.append(thirdSlide());
+	}
+
+	protected static Slide firstSlide()
+	{
+		Slide slide = new Slide();
 		slide.setTitle("JabberPoint");
 		slide.append(1, "The Java prestentation tool");
 		slide.append(2, "Copyright (c) 1996-2000: Ian Darwin");
@@ -25,9 +37,12 @@ class DemoPresentation extends Accessor {
 		slide.append(3, "Next slide: PgDn or Enter");
 		slide.append(3, "Previous slide: PgUp or up-arrow");
 		slide.append(3, "Quit: q or Q");
-		presentation.append(slide);
+		return slide;
+	}
 
-		slide = new Slide();
+	protected static Slide secondSlide()
+	{
+		Slide slide = new Slide();
 		slide.setTitle("Demonstration of levels and styles");
 		slide.append(1, "Level 1");
 		slide.append(2, "Level 2");
@@ -36,19 +51,18 @@ class DemoPresentation extends Accessor {
 		slide.append(2, "Level 2 has style number 2");
 		slide.append(3, "This is how level 3 looks like");
 		slide.append(4, "And this is level 4");
-		presentation.append(slide);
+		return slide;
+	}
 
-		slide = new Slide();
+	protected static Slide thirdSlide()
+	{
+		Slide slide = new Slide();
 		slide.setTitle("The third slide");
 		slide.append(1, "To open a new presentation,");
 		slide.append(2, "use File->Open from the menu.");
 		slide.append(1, " ");
 		slide.append(1, "This is the end of the presentation.");
-		slide.append(new BitmapItem(1, "JabberPoint.jpg"));
-		presentation.append(slide);
-	}
-
-	public void saveFile(Presentation presentation, String unusedFilename) {
-		throw new IllegalStateException("Save As->Demo! called");
+		slide.append(new BitmapItem(1, "./assets/JabberPoint.jpg"));
+		return slide;
 	}
 }
